@@ -1,8 +1,8 @@
-# 📅 Medical Assistant Chatbot — RAG-based Application
+# 📅 AI Medical Assistant Chatbot — RAG-based Application
 
-![Medical Chatbot Thumbnail](./assets/medicalAssistant.png)
+![Medical Assistant Thumbnail](./assets/medicalAssistant.png)
 
-> 🎥 **Watch the full project walkthrough:** [YouTube Video](https://youtube.com/your-video-link)
+> 🎥 **Watch the full project walkthrough:** [YouTube Video](https://youtu.be/BOhKnkrr4Yc)
 >
 > 🗂️ **Architecture PDF:** [View Architecture](./assets/MedicalAssistant.pdf)
 
@@ -65,15 +65,10 @@ For a detailed view, refer to the **[MedicalAssistant.pdf](./assets/MedicalAssis
 ## 📚 API Endpoints
 
 ```http
-POST /upload_pdfs/
-- Upload one or more PDF files
+POST /upload_pdfs/ --- Upload one or more PDF files
 
-POST /ask/
-- Ask a question
-- Form field: `question`
+POST /ask/ --- Ask a question --- Form field: `question`
 
-GET /test
-- Health check endpoint
 ```
 
 ---
@@ -81,21 +76,66 @@ GET /test
 ## 📁 Folder Structure
 
 ```
-.
-├── server/
-│   ├── main.py
-│   ├── modules/
-│   │   ├── load_vectorstore.py
-│   │   ├── llm.py
-│   │   ├── query_handler.py
-│   │   └── pdf_handler.py
-│   └── logger.py
-├── client/            # (Optional frontend)
-├── assets/
-│   ├── thumbnail.png
-│   └── architecture.pdf
-├── requirements.txt
-└── README.md
+└── 📁assets
+    ├── DIABETES.pdf
+    ├── MedicalAssistant.pdf
+    └── medicalAssistant.png
+```
+
+```
+└── 📁client
+    └── 📁__pycache__
+        ├── config.cpython-311.pyc
+    └── 📁components
+        └── 📁__pycache__
+            ├── chatUI.cpython-311.pyc
+            ├── history_download.cpython-311.pyc
+            ├── upload.cpython-311.pyc
+        ├── chatUI.py
+        ├── history_download.py
+        ├── upload.py
+    └── 📁utils
+        └── 📁__pycache__
+            ├── api.cpython-311.pyc
+        ├── api.py
+    ├── app.py
+    ├── config.py
+    └── requirements.txt
+```
+
+```
+└── 📁server
+    └── 📁__pycache__
+        ├── logger.cpython-311.pyc
+        ├── main.cpython-311.pyc
+        ├── test.cpython-311.pyc
+    └── 📁middlewares
+        └── 📁__pycache__
+            ├── exception_handlers.cpython-311.pyc
+        ├── exception_handlers.py
+    └── 📁modules
+        └── 📁__pycache__
+            ├── llm.cpython-311.pyc
+            ├── load_vectorstore.cpython-311.pyc
+            ├── query_handlers.cpython-311.pyc
+        ├── llm.py
+        ├── load_vectorstore.py
+        ├── pdf_handlers.py
+        ├── query_handlers.py
+    └── 📁routes
+        └── 📁__pycache__
+            ├── ask_question.cpython-311.pyc
+            ├── upload_pdfs.cpython-311.pyc
+        ├── ask_question.py
+        ├── upload_pdfs.py
+    └── 📁uploaded_docs
+        ├── DIABETES.pdf
+        ├── Supratim Nag - LOR.pdf
+    ├── .env
+    ├── logger.py
+    ├── main.py
+    ├── requirements.txt
+    └── test.py
 ```
 
 ---
@@ -104,15 +144,15 @@ GET /test
 
 ```bash
 # Clone the repo
-$ git clone https://github.com/your-username/medical-rag-chatbot.git
-$ cd medical-rag-chatbot/server
+$ git clone https://github.com/snsupratim/medicalAssistant.git
+$ cd medicalAssistant/server
 
 # Create virtual env
-$ python -m venv venv
-$ source venv/bin/activate  # Windows: venv\Scripts\activate
+$ uv venv
+$ .venv/bin/activate  # Windows: venv\Scripts\activate
 
 # Install dependencies
-$ pip install -r requirements.txt
+$ uv pip install -r requirements.txt
 
 # Set environment variables (.env)
 GOOGLE_API_KEY=...
@@ -132,12 +172,6 @@ $ uvicorn main:app --reload --port 8000
 
   ```bash
   uvicorn main:app --host 0.0.0.0 --port 10000
-  ```
-
-- Install `python-multipart` for FastAPI form data support:
-
-  ```bash
-  pip install python-multipart
   ```
 
 ---
