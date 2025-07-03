@@ -161,6 +161,19 @@ PINECONE_API_KEY=...
 
 # Run the server
 $ uvicorn main:app --reload --port 8000
+
+
+$ cd medicalAssistant/client
+
+# Create virtual env
+$ uv venv
+$ .venv/bin/activate  # Windows: venv\Scripts\activate
+
+# Install dependencies
+$ uv pip install -r requirements.txt
+
+# Run the server
+$ streamlit run app.py
 ```
 
 ---
