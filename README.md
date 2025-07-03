@@ -144,7 +144,7 @@ $ uvicorn main:app --reload --port 8000
 
 ## 🌟 Credits
 
-- Built by \[Your Name]
+- Built by Supratim Nag
 - Inspired by LangChain, Groq, Pinecone, and FastAPI ecosystems
 
 ---
